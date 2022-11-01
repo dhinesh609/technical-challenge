@@ -1,23 +1,11 @@
 def challenge3(object, key):
-    value = object
-    default=None
-    raising=False
+    x = object
     
-    try:
-        for key in key.split('/'):
-            if isinstance(value, dict):
-                value = value[key]
-                continue
-            else:
-                if raising:
-                    raise KeyError
-                return default
-    except KeyError:
-        if raising:
-            raise
-        return default
-    else:
-        return value
+    for key in key.split('/'):
+      if isinstance(x, dict):
+        x = x[key]
+        continue
+    return x
 
 #Test Results  
 print(challenge3({"x":{"y":{"z":"a"}}}, 'x/y/z' )) #Answer=a
